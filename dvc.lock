@@ -48,22 +48,22 @@ stages:
       size: 3167
     params:
       params.yaml:
-        model_train.max_depth: 10
+        model_train.max_depth: 20
         model_train.min_samples_leaf: 2
-        model_train.min_samples_split: 10
-        model_train.n_estimators: 200
+        model_train.min_samples_split: 5
+        model_train.n_estimators: 300
     outs:
     - path: models/model.pkl
       hash: md5
-      md5: 676d56650ef668ca3ddf20b9ecdab2b0
-      size: 3122597
+      md5: cc2db5f8b75372365f0838c59765f3f3
+      size: 15534604
   model_predict:
     cmd: python src/modeling/predict.py
     deps:
     - path: models/model.pkl
       hash: md5
-      md5: 676d56650ef668ca3ddf20b9ecdab2b0
-      size: 3122597
+      md5: cc2db5f8b75372365f0838c59765f3f3
+      size: 15534604
     - path: src/modeling/predict.py
       hash: md5
       md5: 01a001f70baabc979506c5fd6cdad8ed
@@ -71,5 +71,5 @@ stages:
     outs:
     - path: reports/metrics.json
       hash: md5
-      md5: 9d6ac4910ef30e53f6ec5781596ec5ee
+      md5: 266ad75baccf88ea7be53e8f4f917dca
       size: 144
