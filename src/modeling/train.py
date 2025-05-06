@@ -4,9 +4,11 @@ import pickle
 import os
 import logging
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
 from typing import Tuple
 
-# Setup logging to both console and file
+# Configure logging
 log_file_path = "train.log"
 logging.basicConfig(
     level=logging.INFO,
@@ -17,16 +19,12 @@ logging.basicConfig(
     ]
 )
 
-def load_params(params_path: str) -> int:
+def load_params(params_path: str) -> dict:
     try:
         with open(params_path, "r") as file:
             params = yaml.safe_load(file)
-        n_estimators = params["model_train"]["n_estimators"]
-        logging.info(f"Loaded n_estimators={n_estimators} from {params_path}")
-        return n_estimators
-    except KeyError as e:
-        logging.error(f"Missing key in params.yaml: {e}")
-        raise
+        logging.info(f"Loaded parameters from {params_path}")
+        return params
     except Exception as e:
         logging.error(f"Error loading parameters from {params_path}: {e}")
         raise
@@ -42,7 +40,7 @@ def load_data(data_path: str) -> pd.DataFrame:
 
 def prepare_data(data: pd.DataFrame) -> Tuple[pd.DataFrame, pd.Series]:
     try:
-        X = data.drop(columns=['Potability'], axis=1)
+        X = data.drop(columns=['Potability'])
         y = data['Potability']
         logging.info("Prepared features and target variable from training data")
         return X, y
@@ -50,17 +48,29 @@ def prepare_data(data: pd.DataFrame) -> Tuple[pd.DataFrame, pd.Series]:
         logging.error(f"Error preparing data: {e}")
         raise
 
-def train_model(X: pd.DataFrame, y: pd.Series, n_estimators: int) -> RandomForestClassifier:
+def train_model(X: pd.DataFrame, y: pd.Series, model_params: dict) -> Pipeline:
     try:
-        clf = RandomForestClassifier(n_estimators=n_estimators, random_state=42)
-        clf.fit(X, y)
-        logging.info(f"Model trained successfully with {n_estimators} estimators")
-        return clf
+        clf = RandomForestClassifier(
+            n_estimators=model_params["n_estimators"],
+            max_depth=model_params["max_depth"],
+            min_samples_split=model_params["min_samples_split"],
+            min_samples_leaf=model_params["min_samples_leaf"],
+            random_state=42 
+        )
+
+        pipeline = Pipeline([
+            ('scaler', StandardScaler()),
+            ('classifier', clf)
+        ])
+
+        pipeline.fit(X, y)
+        logging.info("Model trained successfully")
+        return pipeline
     except Exception as e:
         logging.error(f"Error training model: {e}")
         raise
 
-def save_model(model: RandomForestClassifier, model_path: str) -> None:
+def save_model(model: Pipeline, model_path: str) -> None:
     try:
         os.makedirs(os.path.dirname(model_path), exist_ok=True)
         with open(model_path, "wb") as file:
@@ -76,11 +86,13 @@ def main():
         data_path = "./data/processed/train_processed_mean.csv"
         model_path = "models/model.pkl"
 
-        n_estimators = load_params(params_path)
+        params = load_params(params_path)
+        model_params = params.get("model_train", {})
+
         train_data = load_data(data_path)
         X_train, y_train = prepare_data(train_data)
 
-        model = train_model(X_train, y_train, n_estimators)
+        model = train_model(X_train, y_train, model_params)
         save_model(model, model_path)
 
     except Exception as e:

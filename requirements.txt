@@ -12,3 +12,5 @@ ruff
 scikit-learn
 #-e .
 
+# # API
+# pip install "fastapi[all]"
