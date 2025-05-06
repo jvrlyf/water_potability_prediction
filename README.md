@@ -1,9 +1,5 @@
 # Water Potability Prediction
 
-<a target="_blank" href="https://cookiecutter-data-science.drivendata.org/">
-    <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
-</a>
-
 Welcome! This project demonstrates an end-to-end MLOps workflow to predict water potability using machine learning. We use tools like MLflow for tracking, DVC for versioning, and Tkinter for creating a desktop application.
 
 ## Project Organization
