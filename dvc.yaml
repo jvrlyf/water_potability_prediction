@@ -33,3 +33,8 @@ stages:
     - src/modeling/predict.py
     metrics:
     - reports/metrics.json
+metrics:
+- dvclive/metrics.json
+plots:
+- dvclive/plots/metrics:
+    x: step
