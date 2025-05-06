@@ -1,0 +1,32 @@
+stages:
+  dataset:
+    cmd: python src/dataset.py
+    deps:
+    - src/dataset.py
+    params:
+    - dataset.test_size
+    outs:
+    - data/interim
+  features:
+    cmd: python src/features.py
+    deps:
+    - data/interim
+    - src/features.py
+    outs:
+    - data/processed
+  modeling_train:
+    cmd: python src/modeling/train.py
+    deps:
+    - data/processed
+    - src/modeling/train.py
+    params:
+    - model_train.n_estimators
+    outs:
+    - models/model.pkl
+  model_predict:
+    cmd: python src/modeling/predict.py
+    deps:
+    - models/model.pkl
+    - src/modeling/predict.py
+    metrics:
+    - reports/metrics.json

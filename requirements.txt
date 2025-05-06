@@ -1,4 +1,4 @@
-awscli
+#awscli
 ipython
 jupyterlab
 matplotlib
@@ -10,4 +10,5 @@ pip
 python-dotenv
 ruff
 scikit-learn
--e .
+#-e .
+
