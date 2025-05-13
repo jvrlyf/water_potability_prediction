@@ -1,0 +1,6 @@
+artifact_location: mlflow-artifacts:/914767462834749745
+creation_time: 1746598852904
+experiment_id: '914767462834749745'
+last_update_time: 1746598852904
+lifecycle_stage: active
+name: water_potability_prediction

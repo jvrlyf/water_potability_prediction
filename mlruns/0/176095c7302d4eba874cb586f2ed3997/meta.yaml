@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/176095c7302d4eba874cb586f2ed3997/artifacts
+end_time: 1746599073944
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 176095c7302d4eba874cb586f2ed3997
+run_name: illustrious-tern-180
+run_uuid: 176095c7302d4eba874cb586f2ed3997
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746599073940
+status: 3
+tags: []
+user_id: jvr

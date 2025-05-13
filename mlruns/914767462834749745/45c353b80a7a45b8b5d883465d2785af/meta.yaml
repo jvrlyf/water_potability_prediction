@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/914767462834749745/45c353b80a7a45b8b5d883465d2785af/artifacts
+end_time: 1746599326074
+entry_point_name: ''
+experiment_id: '914767462834749745'
+lifecycle_stage: active
+run_id: 45c353b80a7a45b8b5d883465d2785af
+run_name: capricious-colt-457
+run_uuid: 45c353b80a7a45b8b5d883465d2785af
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746599326070
+status: 3
+tags: []
+user_id: jvr

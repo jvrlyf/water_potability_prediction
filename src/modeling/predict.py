@@ -10,6 +10,8 @@ from typing import Tuple, Dict
 from dvclive import Live
 import yaml
 
+import mlflow
+mlflow.set_experiment("water_potability_prediction")
 
 # Configure logging
 log_file_path = "predict.log"
@@ -77,6 +79,20 @@ def evaluate_model(model, X_test: pd.DataFrame, y_test: pd.Series) -> Dict[str, 
             live.log_metric("max_depth",max_depth)
             live.log_metric("min_samples_split",min_samples_split)
             live.log_metric("min_samples_leaf",min_samples_leaf)
+
+        with mlflow.start_run():
+            mlflow.log_metric("accuracy", acc)
+            mlflow.log_metric("precision", pre)
+            mlflow.log_metric("recall", recall)
+            mlflow.log_metric("f1_score", f1score)
+
+            # Log parameters correctly using log_param
+            mlflow.log_param("test_size", test_size)
+            mlflow.log_param("n_estimators", n_estimators)
+            mlflow.log_param("max_depth", max_depth)
+            mlflow.log_param("min_samples_split", min_samples_split)
+            mlflow.log_param("min_samples_leaf", min_samples_leaf)
+
 
 
         metrics_dict = {

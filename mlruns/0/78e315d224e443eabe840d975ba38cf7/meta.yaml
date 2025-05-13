@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/78e315d224e443eabe840d975ba38cf7/artifacts
+end_time: 1746597982449
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 78e315d224e443eabe840d975ba38cf7
+run_name: luxuriant-hog-149
+run_uuid: 78e315d224e443eabe840d975ba38cf7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746597982445
+status: 3
+tags: []
+user_id: jvr

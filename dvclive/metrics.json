@@ -1,11 +1,11 @@
 {
-    "accuracy": 0.6844512195121951,
-    "precision": 0.6554621848739496,
-    "recall": 0.319672131147541,
-    "f1_score": 0.4297520661157025,
+    "accuracy": 0.6859756097560976,
+    "precision": 0.6583333333333333,
+    "recall": 0.3237704918032787,
+    "f1_score": 0.4340659340659341,
     "test_size": 0.2,
     "n_estimators": 300,
     "max_depth": 20,
-    "min_samples_split": 5,
+    "min_samples_split": 10,
     "min_samples_leaf": 2
 }

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Potability Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Water Potability Prediction</h1>
+
+        <form action="/predict/" method="POST">
+            <div class="form-group">
+                <label for="ph">PH Level:</label>
+                <input type="text" id="ph" name="ph" required>
+            </div>
+
+            <div class="form-group">
+                <label for="hardness">Hardness:</label>
+                <input type="text" id="hardness" name="hardness" required>
+            </div>
+
+            <div class="form-group">
+                <label for="solids">Solids:</label>
+                <input type="text" id="solids" name="solids" required>
+            </div>
+
+            <div class="form-group">
+                <label for="chloramines">Chloramines:</label>
+                <input type="text" id="chloramines" name="chloramines" required>
+            </div>
+
+            <div class="form-group">
+                <label for="sulfate">Sulfate:</label>
+                <input type="text" id="sulfate" name="sulfate" required>
+            </div>
+
+            <div class="form-group">
+                <label for="conductivity">Conductivity:</label>
+                <input type="text" id="conductivity" name="conductivity" required>
+            </div>
+
+            <div class="form-group">
+                <label for="organic_carbon">Organic Carbon:</label>
+                <input type="text" id="organic_carbon" name="organic_carbon" required>
+            </div>
+
+            <div class="form-group">
+                <label for="trihalomethanes">Trihalomethanes:</label>
+                <input type="text" id="trihalomethanes" name="trihalomethanes" required>
+            </div>
+
+            <div class="form-group">
+                <label for="turbidity">Turbidity:</label>
+                <input type="text" id="turbidity" name="turbidity" required>
+            </div>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction is not none %}
+            <div class="result">
+                <h2>Prediction Result: {{ prediction }}</h2>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

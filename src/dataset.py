@@ -5,6 +5,10 @@ import logging
 from sklearn.model_selection import train_test_split
 import yaml
 
+import mlflow
+mlflow.set_experiment("water_potability_prediction")
+
+
 # Configure logging to both file and terminal
 log_file_path = "dataset.log"
 logging.basicConfig(
@@ -24,6 +28,10 @@ def load_params(filepath: str) -> float:
 
         test_size = params["dataset"]["test_size"]
         logging.info(f"Using test_size={test_size}")
+
+        with mlflow.start_run():
+            mlflow.log_param("test_size", test_size)
+
         return test_size
     except KeyError as e:
         logging.error(f"Missing key in params.yaml: {e}")

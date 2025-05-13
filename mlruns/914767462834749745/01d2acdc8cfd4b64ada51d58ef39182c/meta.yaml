@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/914767462834749745/01d2acdc8cfd4b64ada51d58ef39182c/artifacts
+deleted_time: 1746967567741
+end_time: 1746966640544
+entry_point_name: ''
+experiment_id: '914767462834749745'
+lifecycle_stage: deleted
+run_id: 01d2acdc8cfd4b64ada51d58ef39182c
+run_name: nosy-asp-632
+run_uuid: 01d2acdc8cfd4b64ada51d58ef39182c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746966638202
+status: 4
+tags: []
+user_id: jvr

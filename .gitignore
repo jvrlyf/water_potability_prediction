@@ -1,7 +1,7 @@
 # Data
 /data/
 #files
- 
+template
 data_model.py
 main.py
 

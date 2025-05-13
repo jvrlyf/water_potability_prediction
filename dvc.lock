@@ -5,8 +5,8 @@ stages:
     deps:
     - path: src/dataset.py
       hash: md5
-      md5: 84dc7ad67fcb4a36e6511e5bde40c0f6
-      size: 2683
+      md5: b7450a370f131e37fe21cd71337cd1ea
+      size: 2840
     params:
       params.yaml:
         dataset.test_size: 0.2
@@ -26,8 +26,8 @@ stages:
       nfiles: 2
     - path: src/features.py
       hash: md5
-      md5: c50a5451e052c4318a77aa01e89c8aa7
-      size: 2263
+      md5: fceb03182a0c8990363ea30c8d5e6051
+      size: 2265
     outs:
     - path: data/processed
       hash: md5
@@ -44,32 +44,32 @@ stages:
       nfiles: 2
     - path: src/modeling/train.py
       hash: md5
-      md5: 337247def8cbf92d6aef18fa8d7a6af1
-      size: 3167
+      md5: c0542b6c7ae961fdcb793807f417c535
+      size: 3166
     params:
       params.yaml:
         model_train.max_depth: 20
         model_train.min_samples_leaf: 2
-        model_train.min_samples_split: 5
+        model_train.min_samples_split: 10
         model_train.n_estimators: 300
     outs:
     - path: models/model.pkl
       hash: md5
-      md5: cc2db5f8b75372365f0838c59765f3f3
-      size: 15534604
+      md5: 03c8fc0b1d6d8991193221e1d232ed61
+      size: 11238744
   model_predict:
     cmd: python src/modeling/predict.py
     deps:
     - path: models/model.pkl
       hash: md5
-      md5: cc2db5f8b75372365f0838c59765f3f3
-      size: 15534604
+      md5: 03c8fc0b1d6d8991193221e1d232ed61
+      size: 11238744
     - path: src/modeling/predict.py
       hash: md5
-      md5: c3077a426ceb0592b39f5e1560b180f0
-      size: 3964
+      md5: 8d2725ade7a69b9a7d2f413028a64e91
+      size: 4616
     outs:
     - path: reports/metrics.json
       hash: md5
-      md5: 266ad75baccf88ea7be53e8f4f917dca
-      size: 144
+      md5: 04b378aea9c25d89d0df1e450e9cced4
+      size: 145

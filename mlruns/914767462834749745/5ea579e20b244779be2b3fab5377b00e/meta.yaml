@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/914767462834749745/5ea579e20b244779be2b3fab5377b00e/artifacts
+deleted_time: 1746967567740
+end_time: 1746951035142
+entry_point_name: ''
+experiment_id: '914767462834749745'
+lifecycle_stage: deleted
+run_id: 5ea579e20b244779be2b3fab5377b00e
+run_name: thundering-squid-868
+run_uuid: 5ea579e20b244779be2b3fab5377b00e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746951032492
+status: 4
+tags: []
+user_id: jvr

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/914767462834749745/c408599dff384564aad87db9dc22f09c/artifacts
+end_time: 1746599280086
+entry_point_name: ''
+experiment_id: '914767462834749745'
+lifecycle_stage: active
+run_id: c408599dff384564aad87db9dc22f09c
+run_name: sincere-asp-481
+run_uuid: c408599dff384564aad87db9dc22f09c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746599280083
+status: 3
+tags: []
+user_id: jvr
